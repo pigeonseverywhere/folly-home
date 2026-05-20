@@ -46,8 +46,27 @@ mily=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
 <body>
   <h1>folly<span class="accent">.</span></h1>
   <p class="tagline">two people. one folio.</p>
-  <p class="links">
-    <a href="/privacy">privacy policy</a>
-  </p>
+  <p class="lede">folly is a shared budget tracker for two people. It doesn't run on a server. It doesn't have a backend. The data lives on your device and in your own (or your budget partner's) Google Drive</p>
+  <h2>what folly does</h2>
+  <p>You and a budget partner (yes, singular, no three people budgets yet) each track your own expenses locally. When you're ready to settle up, folly syncs your entries and your partner's entries to a Google sheet - owned by whoever created the budget out of the two of you. folly will read your partner's entries from their tab, and your entries from your tab. It computes who owes who, records the settlement locally, and that's it.</p>
+  <h2>google account access</h2>
+  <p>folly requests access to the following Google services:</p>
+  <p><strong>Google Sheets</strong> - to create a shared spreadsheet in your Google drive (if you're the budget creator), and write your expense entries to it during settelement.</p>
+  <p><strong>Google Drive</strong> - to share that spreadsheet with your budget partner so they can read it.</p>
+  <p><strong>Google Sign-In</strong> - to identify you and verify that the right account is accessing the right budget- if you accidentally send the budget invite link to an ex, they can't see it.</p>
+  <p>folly does not read any existing files in your Drive. It only touches the spreadsheet it creates, or have been shared with you by your budget partner.</p>
+
+  <h2>what folly doesn't do</h2>
+  <p>We do not collect, store, or transmit your data to any server we operate. We have no backend- we cannot see your expenses, your email, or your Google Drive. We do not use your data for advertising, analytics, or any purpose beyond making the app work.</p>
+
+  <hr />
+
+  <h2>google api limited use disclosure</h2>
+  <p class="disclosure">folly's use of information received from Google APIs adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use Requirements.</p>
+
+  <hr />
+
+  <p style="font-size: 14px;"><a href="/privacy.html">privacy policy</a>&nbsp;·&nbsp; <a href="mailto:placeholderemailprecommit@gmail.com">contact</a></p>
+
 </body>
 </html>
