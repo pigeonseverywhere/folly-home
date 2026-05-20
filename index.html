@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>folly.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&fa
+mily=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #ffffff;
+      color: #062035;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 24px;
+      max-width: 560px;
+    }
+    h1 {
+      font-family: 'DM Mono', monospace;
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 500;
+      color: #062035;
+      line-height: 1.1;
+    }
+    .tagline {
+      font-size: 15px;
+      color: #0A4B75;
+      margin-top: 8px;
+    }
+    .accent { color: #F4BF33; }
+    .links {
+      margin-top: 48px;
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+    a { color: #0A4B75; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>folly<span class="accent">.</span></h1>
+  <p class="tagline">two people. one folio.</p>
+  <p class="links">
+    <a href="/privacy">privacy policy</a>
+  </p>
+</body>
+</html>
