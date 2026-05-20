@@ -4,21 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>folly.</title>
+  <link rel="shortcut icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&fa
-mily=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'DM Sans', sans-serif;
       background: #ffffff;
       color: #062035;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 48px 24px;
-      max-width: 560px;
+      max-width: 640px;
+      margin: 0;
+      padding: 48px 24px 48px 48px;
+      line-height: 1.7;
     }
     h1 {
       font-family: 'DM Mono', monospace;
@@ -27,18 +25,37 @@ mily=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
       color: #062035;
       line-height: 1.1;
     }
+    h2 {
+      font-size: 15px;
+      font-weight: 500;
+      margin: 36px 0 8px;
+    }
+    p {
+      font-size: 15px;
+      color: #0A4B75;
+      margin-bottom: 10px;
+    }
     .tagline {
       font-size: 15px;
       color: #0A4B75;
-      margin-top: 8px;
+      margin: 8px 0 32px;
     }
     .accent { color: #F4BF33; }
-    .links {
-      margin-top: 48px;
-      display: flex;
-      gap: 24px;
-      font-size: 14px;
+    .lede {
+      font-size: 16px;
+      color: #062035;
+      margin-bottom: 10px;
     }
+    hr { border: none; border-top: 1px solid #0A4B7520; margin: 48px 0 32px; }
+    .disclosure {
+      font-size: 13px;
+      color: #0A4B75;
+      opacity: 0.75;
+      border-left: 2px solid #F4BF33;
+      padding-left: 14px;
+      margin-top: 10px;
+    }
+    .footer { font-size: 14px; }
     a { color: #0A4B75; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -46,27 +63,30 @@ mily=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
 <body>
   <h1>folly<span class="accent">.</span></h1>
   <p class="tagline">two people. one folio.</p>
-  <p class="lede">folly is a shared budget tracker for two people. It doesn't run on a server. It doesn't have a backend. The data lives on your device and in your own (or your budget partner's) Google Drive</p>
+
+  <p class="lede">folly is a shared budget tracker for two people. It doesn't run on a server. It doesn't have a backend. The data lives on your device and in your own (or your budget partner's) Google Drive.</p>
+
   <h2>what folly does</h2>
-  <p>You and a budget partner (yes, singular, no three people budgets yet) each track your own expenses locally. When you're ready to settle up, folly syncs your entries and your partner's entries to a Google sheet - owned by whoever created the budget out of the two of you. folly will read your partner's entries from their tab, and your entries from your tab. It computes who owes who, records the settlement locally, and that's it.</p>
+  <p>You and a budget partner (yes, singular — no three-person budgets yet) each track your own expenses locally. When you're ready to settle up, folly syncs your entries and your partner's entries to a Google Sheet owned by whoever created the budget. folly reads your partner's entries from their tab and your entries from yours, computes who owes whom, records the settlement locally, and that's it.</p>
+
   <h2>google account access</h2>
   <p>folly requests access to the following Google services:</p>
-  <p><strong>Google Sheets</strong> - to create a shared spreadsheet in your Google drive (if you're the budget creator), and write your expense entries to it during settelement.</p>
-  <p><strong>Google Drive</strong> - to share that spreadsheet with your budget partner so they can read it.</p>
-  <p><strong>Google Sign-In</strong> - to identify you and verify that the right account is accessing the right budget- if you accidentally send the budget invite link to an ex, they can't see it.</p>
-  <p>folly does not read any existing files in your Drive. It only touches the spreadsheet it creates, or have been shared with you by your budget partner.</p>
+  <p><strong>Google Sheets</strong> — to create a shared spreadsheet in your Google Drive (if you're the budget creator), and write your expense entries to it during settlement.</p>
+  <p><strong>Google Drive</strong> — to share that spreadsheet with your budget partner so they can read it.</p>
+  <p><strong>Google Sign-In</strong> — to identify you and verify that the right account is accessing the right budget.</p>
+  <p>folly does not read any existing files in your Drive. It only touches the spreadsheet it creates, or one that has been shared with you by your budget partner.</p>
 
   <h2>what folly doesn't do</h2>
-  <p>We do not collect, store, or transmit your data to any server we operate. We have no backend- we cannot see your expenses, your email, or your Google Drive. We do not use your data for advertising, analytics, or any purpose beyond making the app work.</p>
+  <p>We do not collect, store, or transmit your data to any server we operate. We have no backend — we cannot see your expenses, your email, or your Google Drive. We do not use your data for advertising, analytics, or any purpose beyond making the app work.</p>
 
   <hr />
 
   <h2>google api limited use disclosure</h2>
-  <p class="disclosure">folly's use of information received from Google APIs adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use Requirements.</p>
+  <p class="disclosure">folly's use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use Requirements.</p>
 
   <hr />
 
-  <p style="font-size: 14px;"><a href="/privacy.html">privacy policy</a>&nbsp;·&nbsp; <a href="mailto:placeholderemailprecommit@gmail.com">contact</a></p>
+  <p class="footer"><a href="/privacy.html">privacy policy</a>&nbsp;·&nbsp;<a href="mailto:placeholderemailprecommit@gmail.com">contact</a></p>
 
 </body>
 </html>
