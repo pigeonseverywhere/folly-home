@@ -34,10 +34,10 @@
     }
 
     .logo {
-      font-size: 44px;
+      font-size: 32px;
       font-weight: 500;
       color: #062035;
-      line-height: 1;
+      line-height: 1.1;
       letter-spacing: -0.02em;
     }
     .logo .dot { color: #F4BF33; }
@@ -159,6 +159,8 @@
     }
     .footer a { color: #0A4B75; text-decoration: none; }
     .footer a:hover { color: #062035; }
+    .back { display: block; margin-bottom: 32px; font-size: 12px; letter-spacing: 0.05em; color: #0A4B75; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
 
     /* ── Theme toggle ── */
     #theme-toggle {
@@ -215,6 +217,7 @@
     html.dark .footer { color: #2E5F80; }
     html.dark .footer a { color: #2E5F80; }
     html.dark .footer a:hover { color: #C8BFB0; }
+    html.dark .back { color: #2E5F80; }
   </style>
   <script>
     (function() {
@@ -228,6 +231,8 @@
   <button id="theme-toggle" aria-label="Toggle theme"></button>
 
   <div class="page">
+
+    <a class="back" href="index.html">← folly.home</a>
 
     <div class="header">
       <div class="top">
