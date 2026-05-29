@@ -33,9 +33,46 @@ margin-bottom: 6px; }
     .back:hover { text-decoration: underline; }
     .changelog { font-size: 13px; color: #0A4B75; opacity: 0.7; }
     hr { border: none; border-top: 1px solid #0A4B7520; margin: 48px 0 32px; }
+
+    /* ── Theme toggle ── */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      background: none;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      padding: 4px 8px;
+      cursor: pointer;
+      opacity: 0.4;
+      color: inherit;
+    }
+    #theme-toggle:hover { opacity: 1; }
+
+    /* ── Dark mode ── */
+    html.dark body { background: #062035; color: #C8BFB0; }
+    html.dark h1 { color: #F4E8CE; }
+    html.dark h2 { color: #F4E8CE; }
+    html.dark p, html.dark li { color: #C8BFB0; }
+    html.dark .lede { color: #F4E8CE; }
+    html.dark .meta { color: #7A9BAD; opacity: 1; }
+    html.dark .changelog { color: #7A9BAD; opacity: 1; }
+    html.dark a, html.dark .back { color: #8AB4C8; }
+    html.dark hr { border-top-color: #0C3050; }
   </style>
+  <script>
+    (function() {
+      var s = localStorage.getItem('folly-theme');
+      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s === 'dark' || (s === null && d)) document.documentElement.classList.add('dark');
+    })();
+  </script>
 </head>
 <body>
+  <button id="theme-toggle" aria-label="Toggle theme"></button>
   <a class="back" href="index.html">← folly.</a>
   <h1>privacy policy</h1>
   <p class="meta">Last updated: May 18, 2026</p>
@@ -72,6 +109,18 @@ URL.</p>
   <hr />
   <p class="changelog"><strong>changelog</strong><br />18 May, 2026 — Beta
 release</p>
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      function sync() { btn.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark'; }
+      sync();
+      btn.addEventListener('click', function() {
+        var dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('folly-theme', dark ? 'dark' : 'light');
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
 

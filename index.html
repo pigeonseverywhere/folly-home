@@ -58,9 +58,45 @@
     .footer { font-size: 14px; }
     a { color: #0A4B75; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    /* ── Theme toggle ── */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      background: none;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      padding: 4px 8px;
+      cursor: pointer;
+      opacity: 0.4;
+      color: inherit;
+    }
+    #theme-toggle:hover { opacity: 1; }
+
+    /* ── Dark mode ── */
+    html.dark body { background: #062035; color: #F4E8CE; }
+    html.dark h1 { color: #F4E8CE; }
+    html.dark p { color: #C8BFB0; }
+    html.dark .tagline { color: #C8BFB0; }
+    html.dark .lede { color: #F4E8CE; }
+    html.dark hr { border-top-color: #0C3050; }
+    html.dark .disclosure { color: #C8BFB0; }
+    html.dark a { color: #8AB4C8; }
   </style>
+  <script>
+    (function() {
+      var s = localStorage.getItem('folly-theme');
+      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (s === 'dark' || (s === null && d)) document.documentElement.classList.add('dark');
+    })();
+  </script>
 </head>
 <body>
+  <button id="theme-toggle" aria-label="Toggle theme"></button>
   <h1>folly<span class="accent">.</span></h1>
   <p class="tagline">two people. one folio.</p>
 
@@ -88,5 +124,17 @@
 
   <p class="footer"><a href="privacy.html">privacy policy</a>&nbsp;·&nbsp;<a href="mailto:yunshudai2010@gmail.com">contact</a></p>
 
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      function sync() { btn.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark'; }
+      sync();
+      btn.addEventListener('click', function() {
+        var dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('folly-theme', dark ? 'dark' : 'light');
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
