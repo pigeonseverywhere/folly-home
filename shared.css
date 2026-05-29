@@ -43,15 +43,28 @@ hr { border: none; border-top: 1px solid var(--border); margin: 48px 0 32px; }
   position: fixed;
   top: 20px;
   right: 24px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
   background: none;
   border: 1px solid currentColor;
   border-radius: 2px;
-  padding: 4px 8px;
+  padding: 0;
+  width: 30px;
+  height: 16px;
   cursor: pointer;
   opacity: 0.4;
   color: var(--link);
 }
 #theme-toggle:hover { opacity: 1; }
+#theme-toggle::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 1px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  transition: left 120ms ease;
+}
+html.dark #theme-toggle::after { left: 2px; }
