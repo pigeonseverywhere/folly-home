@@ -7,12 +7,10 @@
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: #ffffff;
-      color: #062035;
       max-width: 640px;
       margin: 0;
       padding: 48px 24px 48px 48px;
@@ -22,78 +20,24 @@
       font-family: 'DM Mono', monospace;
       font-size: clamp(36px, 8vw, 56px);
       font-weight: 500;
-      color: #062035;
       line-height: 1.1;
     }
-    h2 {
-      font-size: 15px;
-      font-weight: 500;
-      margin: 36px 0 8px;
-    }
-    p {
-      font-size: 15px;
-      color: #0A4B75;
-      margin-bottom: 10px;
-    }
-    .tagline {
-      font-size: 15px;
-      color: #0A4B75;
-      margin: 8px 0 32px;
-    }
-    .accent { color: #F4BF33; }
-    .lede {
-      font-size: 16px;
-      color: #062035;
-      margin-bottom: 10px;
-    }
-    hr { border: none; border-top: 1px solid #0A4B7520; margin: 48px 0 32px; }
+    h2 { font-size: 15px; font-weight: 500; margin: 36px 0 8px; }
+    p { font-size: 15px; color: var(--body); margin-bottom: 10px; }
+    .tagline { font-size: 15px; color: var(--body); margin: 8px 0 32px; }
+    .accent { color: var(--amber); }
+    .lede { font-size: 16px; margin-bottom: 10px; }
     .disclosure {
       font-size: 13px;
-      color: #0A4B75;
+      color: var(--body);
       opacity: 0.75;
-      border-left: 2px solid #F4BF33;
+      border-left: 2px solid var(--amber);
       padding-left: 14px;
       margin-top: 10px;
     }
     .footer { font-size: 14px; }
-    a { color: #0A4B75; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── Theme toggle ── */
-    #theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      background: none;
-      border: 1px solid currentColor;
-      border-radius: 2px;
-      padding: 4px 8px;
-      cursor: pointer;
-      opacity: 0.4;
-      color: inherit;
-    }
-    #theme-toggle:hover { opacity: 1; }
-
-    /* ── Dark mode ── */
-    html.dark body { background: #062035; color: #F4E8CE; }
-    html.dark h1 { color: #F4E8CE; }
-    html.dark p { color: #C8BFB0; }
-    html.dark .tagline { color: #C8BFB0; }
-    html.dark .lede { color: #F4E8CE; }
-    html.dark hr { border-top-color: #0C3050; }
-    html.dark .disclosure { color: #C8BFB0; }
-    html.dark a { color: #8AB4C8; }
   </style>
-  <script>
-    (function() {
-      var s = localStorage.getItem('folly-theme');
-      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (s === 'dark' || (s === null && d)) document.documentElement.classList.add('dark');
-    })();
-  </script>
+  <script src="theme.js"></script>
 </head>
 <body>
   <button id="theme-toggle" aria-label="Toggle theme"></button>
@@ -124,17 +68,5 @@
 
   <p class="footer"><a href="privacy.html">privacy policy</a>&nbsp;·&nbsp;<a href="roadmap.html">build log</a>&nbsp;·&nbsp;<a href="mailto:yunshudai2010@gmail.com">contact</a></p>
 
-  <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      function sync() { btn.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark'; }
-      sync();
-      btn.addEventListener('click', function() {
-        var dark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('folly-theme', dark ? 'dark' : 'light');
-        sync();
-      });
-    })();
-  </script>
 </body>
 </html>

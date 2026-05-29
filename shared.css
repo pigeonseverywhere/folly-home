@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Color tokens ── */
+:root {
+  --bg:          #ffffff;
+  --ink:         #062035;
+  --body:        #0A4B75;
+  --link:        #0A4B75;
+  --amber:       #F4BF33;
+  --amber-muted: #B8890A;
+  --border:      rgba(10, 75, 117, 0.125);
+}
+
+html.dark {
+  --bg:          #062035;
+  --ink:         #F4E8CE;
+  --body:        #C8BFB0;
+  --link:        #8AB4C8;
+  --amber-muted: #F4BF33;
+  --border:      #0C3050;
+}
+
+/* ── Base ── */
+body { background: var(--bg); color: var(--ink); }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid var(--border); margin: 48px 0 32px; }
+
+/* ── Back nav ── */
+.back {
+  display: block;
+  margin-bottom: 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--link);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+
+/* ── Theme toggle ── */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 4px 8px;
+  cursor: pointer;
+  opacity: 0.4;
+  color: var(--link);
+}
+#theme-toggle:hover { opacity: 1; }

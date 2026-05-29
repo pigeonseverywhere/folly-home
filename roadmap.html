@@ -7,12 +7,9 @@
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      background: #ffffff;
-      color: #062035;
       font-family: 'DM Mono', monospace;
       font-size: 13px;
       line-height: 1.65;
@@ -20,31 +17,22 @@
       padding: 52px 32px 80px 48px;
     }
 
-    /* ── Layout ── */
     .page { max-width: 980px; }
-
-    /* ── Header ── */
     .header { margin-bottom: 40px; }
-
-    .top {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      margin-bottom: 4px;
-    }
+    .top { display: flex; align-items: baseline; gap: 20px; margin-bottom: 4px; }
 
     .logo {
       font-size: 32px;
       font-weight: 500;
-      color: #062035;
+      color: var(--ink);
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
-    .logo .dot { color: #F4BF33; }
+    .logo .dot { color: var(--amber); }
 
     .build-label {
       font-size: 11px;
-      color: #B8890A;
+      color: var(--amber-muted);
       letter-spacing: 0.12em;
     }
 
@@ -54,9 +42,7 @@
       margin-bottom: 28px;
     }
 
-    /* ── Progress bar ── */
     .progress { margin-bottom: 52px; }
-
     .progress-label {
       font-size: 10px;
       letter-spacing: 0.14em;
@@ -64,27 +50,18 @@
       margin-bottom: 6px;
     }
 
-    .bar {
-      font-size: 17px;
-      letter-spacing: 0.04em;
-    }
-    .bar .filled { color: #F4BF33; }
+    .bar { font-size: 17px; letter-spacing: 0.04em; }
+    .bar .filled { color: var(--amber); }
     .bar .empty  { color: #D4CEC5; }
     .bar .pct    { font-size: 12px; color: #0A4B75; margin-left: 10px; }
 
-    /* ── Two-column grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 72px;
-    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
 
     @media (max-width: 640px) {
       body { padding: 36px 20px 64px; }
       .grid { grid-template-columns: 1fr; gap: 48px 0; }
     }
 
-    /* ── Section headers ── */
     .col-label {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -95,24 +72,10 @@
       margin-bottom: 24px;
     }
 
-    /* ── Version blocks ── */
     .vblock { margin-bottom: 28px; }
+    .vtag { font-size: 10px; letter-spacing: 0.1em; color: #0A4B75; margin-bottom: 10px; }
 
-    .vtag {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: #0A4B75;
-      margin-bottom: 10px;
-    }
-
-    /* ── Feature rows ── */
-    .feat {
-      display: flex;
-      gap: 10px;
-      padding: 4px 0;
-      align-items: flex-start;
-    }
-
+    .feat { display: flex; gap: 10px; padding: 4px 0; align-items: flex-start; }
     .badge {
       flex-shrink: 0;
       width: 34px;
@@ -126,20 +89,12 @@
 
     .ok  { color: #8A6000; background: rgba(244,191,51,0.15); border: 1px solid rgba(244,191,51,0.4); }
     .run { color: #8A6000; background: rgba(244,191,51,0.12); border: 1px solid rgba(244,191,51,0.35); }
-    .q   { color: #0A4B75; background: transparent;           border: 1px solid #D0C8BE; }
+    .q   { color: #0A4B75; background: transparent; border: 1px solid #D0C8BE; }
 
-    .feat-text { }
     .feat-text.dim { color: #8A9FAD; }
-
-    .sub {
-      display: block;
-      font-size: 11px;
-      color: #5A7A90;
-      margin-top: 1px;
-    }
+    .sub { display: block; font-size: 11px; color: #5A7A90; margin-top: 1px; }
     .feat-text.dim .sub { color: #A0B5C0; }
 
-    /* ── Blink cursor ── */
     @keyframes blink {
       0%, 100% { opacity: 1; }
       49%       { opacity: 1; }
@@ -147,44 +102,14 @@
     }
     .cursor {
       display: inline-block;
-      color: #B8890A;
+      color: var(--amber-muted);
       animation: blink 1.1s step-end infinite;
     }
 
-    /* ── Footer ── */
-    .footer {
-      margin-top: 64px;
-      font-size: 12px;
-      color: #0A4B75;
-    }
-    .footer a { color: #0A4B75; text-decoration: none; }
-    .footer a:hover { color: #062035; }
-    .back { display: block; margin-bottom: 32px; font-size: 12px; letter-spacing: 0.05em; color: #0A4B75; text-decoration: none; }
-    .back:hover { text-decoration: underline; }
+    .footer { margin-top: 64px; font-size: 12px; }
+    .footer a:hover { color: var(--ink); }
 
-    /* ── Theme toggle ── */
-    #theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      background: none;
-      border: 1px solid currentColor;
-      border-radius: 2px;
-      padding: 4px 8px;
-      cursor: pointer;
-      opacity: 0.4;
-      color: inherit;
-    }
-    #theme-toggle:hover { opacity: 1; }
-
-    /* ── Dark mode ── */
-    html.dark body {
-      background: #062035;
-      color: #C8BFB0;
-    }
+    /* ── Dark mode (roadmap-specific overrides) ── */
     html.dark body::after {
       content: '';
       position: fixed;
@@ -199,12 +124,11 @@
       pointer-events: none;
       z-index: 999;
     }
-    html.dark .logo { color: #F4E8CE; }
-    html.dark .build-label { color: #F4BF33; opacity: 0.6; }
-    html.dark .tagline { color: #2E5F80; }
-    html.dark .progress-label { color: #2E5F80; }
-    html.dark .bar .empty { color: #0C3050; }
+    html.dark .build-label { opacity: 0.6; }
+    html.dark .tagline,
+    html.dark .progress-label,
     html.dark .bar .pct { color: #2E5F80; }
+    html.dark .bar .empty { color: #0C3050; }
     html.dark .col-label { color: #2E5F80; border-bottom-color: #0C3050; }
     html.dark .vtag { color: #2E5F80; }
     html.dark .ok  { color: #F4BF33; background: rgba(244,191,51,0.1);  border-color: rgba(244,191,51,0.25); }
@@ -213,19 +137,8 @@
     html.dark .feat-text.dim { color: #2E5F80; }
     html.dark .sub { color: #2E5F80; }
     html.dark .feat-text.dim .sub { color: #1E4A65; }
-    html.dark .cursor { color: #F4BF33; }
-    html.dark .footer { color: #2E5F80; }
-    html.dark .footer a { color: #2E5F80; }
-    html.dark .footer a:hover { color: #C8BFB0; }
-    html.dark .back { color: #2E5F80; }
   </style>
-  <script>
-    (function() {
-      var s = localStorage.getItem('folly-theme');
-      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (s === 'dark' || (s === null && d)) document.documentElement.classList.add('dark');
-    })();
-  </script>
+  <script src="theme.js"></script>
 </head>
 <body>
   <button id="theme-toggle" aria-label="Toggle theme"></button>
@@ -399,22 +312,9 @@
     </div><!-- /.grid -->
 
     <div class="footer">
-      <a href="index.html">← folly.home</a>
+      <a href="index.html">folly.home</a>&nbsp;·&nbsp;<a href="privacy.html">privacy policy</a>&nbsp;·&nbsp;<a href="roadmap.html">build log</a>&nbsp;·&nbsp;<a href="mailto:yunshudai2010@gmail.com">contact</a>
     </div>
 
   </div><!-- /.page -->
-
-  <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      function sync() { btn.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark'; }
-      sync();
-      btn.addEventListener('click', function() {
-        var dark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('folly-theme', dark ? 'dark' : 'light');
-        sync();
-      });
-    })();
-  </script>
 </body>
 </html>

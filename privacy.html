@@ -6,13 +6,11 @@
   <title>privacy policy — folly.</title>
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: #ffffff;
-      color: #062035;
       max-width: 640px;
       margin: 0;
       padding: 48px 24px 48px 48px;
@@ -20,52 +18,16 @@
     }
     h1 { font-family: 'DM Mono', monospace; font-size: 32px; font-weight: 500; line-height: 1.1; margin-bottom: 6px; }
     h2 { font-size: 15px; font-weight: 500; margin: 36px 0 8px; text-transform: lowercase; }
-    p, li { font-size: 15px; color: #0A4B75; margin-bottom: 10px; }
+    p, li { font-size: 15px; color: var(--body); margin-bottom: 10px; }
     ul { padding-left: 20px; margin-bottom: 10px; }
-    a { color: #0A4B75; }
-    .meta { font-size: 13px; color: #0A4B75; opacity: 0.6; margin-bottom: 36px; }
-    .lede { font-size: 16px; color: #062035; margin-bottom: 6px; }
-    .back { display: block; margin-bottom: 40px; font-size: 14px; color: #0A4B75; text-decoration: none; }
-    .back:hover { text-decoration: underline; }
-    .changelog { font-size: 13px; color: #0A4B75; opacity: 0.7; }
-    hr { border: none; border-top: 1px solid #0A4B7520; margin: 48px 0 32px; }
-
-    /* ── Theme toggle ── */
-    #theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      background: none;
-      border: 1px solid currentColor;
-      border-radius: 2px;
-      padding: 4px 8px;
-      cursor: pointer;
-      opacity: 0.4;
-      color: inherit;
-    }
-    #theme-toggle:hover { opacity: 1; }
-
-    /* ── Dark mode ── */
-    html.dark body { background: #062035; color: #C8BFB0; }
-    html.dark h1 { color: #F4E8CE; }
-    html.dark h2 { color: #F4E8CE; }
-    html.dark p, html.dark li { color: #C8BFB0; }
-    html.dark .lede { color: #F4E8CE; }
-    html.dark .meta { color: #7A9BAD; opacity: 1; }
-    html.dark .changelog { color: #7A9BAD; opacity: 1; }
-    html.dark a, html.dark .back { color: #8AB4C8; }
-    html.dark hr { border-top-color: #0C3050; }
+    .meta { font-size: 13px; color: var(--body); opacity: 0.6; margin-bottom: 36px; }
+    .lede { font-size: 16px; margin-bottom: 6px; }
+    .changelog { font-size: 13px; color: var(--body); opacity: 0.7; }
+    .footer { font-size: 14px; margin-top: 32px; }
+    html.dark .meta,
+    html.dark .changelog { opacity: 1; }
   </style>
-  <script>
-    (function() {
-      var s = localStorage.getItem('folly-theme');
-      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (s === 'dark' || (s === null && d)) document.documentElement.classList.add('dark');
-    })();
-  </script>
+  <script src="theme.js"></script>
 </head>
 <body>
   <button id="theme-toggle" aria-label="Toggle theme"></button>
@@ -73,50 +35,27 @@
   <h1>privacy policy</h1>
   <p class="meta">Last updated: May 18, 2026</p>
 
-  <p class="lede">folly is a shared budget tracker for two people. It does not
-collect your data. QED.</p>
+  <p class="lede">folly is a shared budget tracker for two people. It does not collect your data. QED.</p>
   <p>For the longer version, here's what you should know about your data:</p>
 
   <h2>where your data lives</h2>
-  <p>All expense entries, your name, and your email address are stored locally
-on your device. When you settle expenses, your entries are synced to a Google
-Sheet in your own Google Drive account, a sheet you own and control. Your
-budget partner can read this sheet — I can't.</p>
+  <p>All expense entries, your name, and your email address are stored locally on your device. When you settle expenses, your entries are synced to a Google Sheet in your own Google Drive account, a sheet you own and control. Your budget partner can read this sheet — I can't.</p>
 
   <h2>third parties</h2>
-  <p>folly uses Google Sign-In for authentication and the Google Sheets and
-Drive APIs to sync settlements to your own Google Drive. I used this so I
-don't have to touch your data (or host a server). Your use of these services is
- subject to <a href="https://policies.google.com/privacy">Google's Privacy
-Policy</a>.</p>
+  <p>folly uses Google Sign-In for authentication and the Google Sheets and Drive APIs to sync settlements to your own Google Drive. I used this so I don't have to touch your data (or host a server). Your use of these services is subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
 
   <h2>what I don't do</h2>
-  <p>I do not collect, store, or have access to any of your data. I do not
-track you, sell your data, or use any advertising or analytics services.</p>
+  <p>I do not collect, store, or have access to any of your data. I do not track you, sell your data, or use any advertising or analytics services.</p>
 
   <h2>data deletion</h2>
-  <p>Leaving a budget you've joined or deleting a budget you own wipes all local data from your device. 
-If you created the budget, folly also deletes the shared Google Sheet from your Drive. If you joined a budget, leaving only clears your local data - the sheet sticks around in the owner's Google Drive until they delete the budget.</p>
+  <p>Leaving a budget you've joined or deleting a budget you own wipes all local data from your device. If you created the budget, folly also deletes the shared Google Sheet from your Drive. If you joined a budget, leaving only clears your local data — the sheet sticks around in the owner's Google Drive until they delete the budget.</p>
 
   <h2>changes</h2>
-  <p>If this policy changes, the updated version will be posted at this
-URL.</p>
+  <p>If this policy changes, the updated version will be posted at this URL.</p>
 
   <hr />
-  <p class="changelog"><strong>changelog</strong><br />18 May, 2026 — Beta
-release</p>
-  <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      function sync() { btn.textContent = document.documentElement.classList.contains('dark') ? 'light' : 'dark'; }
-      sync();
-      btn.addEventListener('click', function() {
-        var dark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('folly-theme', dark ? 'dark' : 'light');
-        sync();
-      });
-    })();
-  </script>
+  <p class="changelog"><strong>changelog</strong><br />18 May, 2026 — Beta release</p>
+
+  <p class="footer"><a href="index.html">folly.home</a>&nbsp;·&nbsp;<a href="privacy.html">privacy policy</a>&nbsp;·&nbsp;<a href="roadmap.html">build log</a>&nbsp;·&nbsp;<a href="mailto:yunshudai2010@gmail.com">contact</a></p>
 </body>
 </html>
-
